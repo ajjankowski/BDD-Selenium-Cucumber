@@ -36,14 +36,14 @@ public class GoldenmarkPage {
         Assert.assertEquals(driver.getCurrentUrl(), link);
     }
 
-    public void checkRadioButton() throws InterruptedException {
+    public void checkRadioButton() {
         if (!oneDayRadioButton.isSelected()) {
             oneDayRadioButton.click();
         }
-        Thread.sleep(1000);
     }
 
-    public void checkPrice(String coinName, String link) {
+    public void checkPrice(String coinName, String link) throws InterruptedException {
+        Thread.sleep(1000);
         String coinPrice = goldenmarkCoinPrice.getAttribute("content");
         String logInfo = coinPrice + " - " + coinName + " " + link;
         System.out.println(logInfo);

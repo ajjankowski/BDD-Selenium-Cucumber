@@ -21,7 +21,7 @@ public class MennicaPage {
 
     public void waitUntilPrice(int price) {
         if (checkGoldPrice() <= price) {
-            System.out.println("Time to buy coin!");
+            System.out.println("--> Time to buy coin!");
         } else {
             System.out.println("--> Wait until price drops to " + price + " PLN");
         }
