@@ -9,8 +9,8 @@ import java.time.Duration;
 
 public class WaitManager {
 
-    public static void waitUntilTextDisappears(WebDriver driver, WebElement element, String textToDisappear) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    public static void waitUntilTextDisappears(WebDriver driver, WebElement element, String textToDisappear, int seconds) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(element, textToDisappear)));
     }
 

@@ -31,7 +31,7 @@ public class MennicaPage {
         String mennicaLink = "https://mennicakapitalowa.pl/";
         System.out.println("Opening " + mennicaLink);
         driver.get(mennicaLink);
-        WaitManager.waitUntilTextDisappears(driver, goldPriceElement.get(0), "0.00");
+        WaitManager.waitUntilTextDisappears(driver, goldPriceElement.get(0), "0.00", 5);
         String[] goldPrice = goldPriceElement.get(0).getText().split("\\.");
         System.out.println("Gold price is: " + goldPrice[0] + " /oz");
         return Integer.parseInt(goldPrice[0]);
