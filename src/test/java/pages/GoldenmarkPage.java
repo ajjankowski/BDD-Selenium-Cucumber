@@ -31,6 +31,11 @@ public class GoldenmarkPage {
         }
     }
 
+    public void openWeb(String link) {
+        driver.get(link);
+        Assert.assertEquals(driver.getCurrentUrl(), link);
+    }
+
     public void checkRadioButton() throws InterruptedException {
         if (!oneDayRadioButton.isSelected()) {
             oneDayRadioButton.click();
@@ -42,10 +47,5 @@ public class GoldenmarkPage {
         String coinPrice = goldenmarkCoinPrice.getAttribute("content");
         String logInfo = coinPrice + " - " + coinName + " " + link;
         System.out.println(logInfo);
-    }
-
-    public void openWeb(String link) {
-        driver.get(link);
-        Assert.assertEquals(driver.getCurrentUrl(), link);
     }
 }
