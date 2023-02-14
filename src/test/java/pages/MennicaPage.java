@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import utils.WaitManager;
 
 import java.util.List;
+import java.util.Objects;
 
 public class MennicaPage {
     private static WebDriver driver;
@@ -19,21 +20,27 @@ public class MennicaPage {
     @FindBy(xpath = "//span[@class='price_oz']/span")
     private List<WebElement> goldPriceElement;
 
-    public void waitUntilPrice(int price) {
-        if (checkGoldPrice() <= price) {
-            System.out.println("--> Time to buy coin!");
+    public void waitUntilPrice(String metal, int price) {
+        if (checkMetalPrice(metal) <= price) {
+            System.out.println("-> Time to buy a coin!");
         } else {
-            System.out.println("--> Wait until price drops to " + price + " PLN");
+            System.out.println("-> Wait until price drops to " + price + " PLN");
         }
     }
 
-    public int checkGoldPrice() {
+    public int checkMetalPrice(String metal) {
+        int metalType;
+        if (Objects.equals(metal, "Gold")) {
+            metalType = 0;
+        } else {
+            metalType = 1;
+        }
         String mennicaLink = "https://mennicakapitalowa.pl/";
         System.out.println("Opening " + mennicaLink);
         driver.get(mennicaLink);
-        WaitManager.waitUntilTextDisappears(driver, goldPriceElement.get(0), "0.00", 5);
-        String[] goldPrice = goldPriceElement.get(0).getText().split("\\.");
-        System.out.println("Gold price is: " + goldPrice[0] + " /oz");
-        return Integer.parseInt(goldPrice[0]);
+        WaitManager.waitUntilTextDisappears(driver, goldPriceElement.get(metalType), "0.00", 5);
+        String[] metalPrice = goldPriceElement.get(metalType).getText().split("\\.");
+        System.out.println(metal + " price is: " + metalPrice[0] + " /oz");
+        return Integer.parseInt(metalPrice[0]);
     }
 }

@@ -39,7 +39,7 @@ public class GoldenmarkPage {
 
     public void openWeb(String link) {
         driver.get(link);
-//        Assert.assertEquals(driver.getCurrentUrl(), link);
+        Assert.assertEquals(driver.getCurrentUrl(), link);
     }
 
     public void checkRadioButton() {
@@ -55,10 +55,14 @@ public class GoldenmarkPage {
                 }
                 System.out.println("Coin available in 9 days");
             } catch (Exception e2) {
-                if (!fortyFiveDayRadioButton.isSelected()) {
-                    fortyFiveDayRadioButton.click();
+                try {
+                    if (!fortyFiveDayRadioButton.isSelected()) {
+                        fortyFiveDayRadioButton.click();
+                    }
+                    System.out.println("Coin available only in 45 days");
+                } catch (Exception e3) {
+                    System.out.println("Coin is unavailable");
                 }
-                System.out.println("Coin available only in 45 days");
             }
         }
     }
@@ -66,7 +70,6 @@ public class GoldenmarkPage {
     public void checkPrice(String coinName, String link) throws InterruptedException {
         Thread.sleep(1000);
         String coinPrice = goldenmarkCoinPrice.getAttribute("content");
-        String logInfo = "-> " + coinPrice + " - " + coinName + " " + link;
-        System.out.println(logInfo);
+        System.out.println("-> " + coinPrice + " - " + coinName + " " + link);
     }
 }
