@@ -1,13 +1,16 @@
 package pages;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.WaitManager;
 
 import java.util.List;
 import java.util.Objects;
+import java.time.Duration;
 
 public class MennicaPage {
     private static WebDriver driver;
@@ -19,6 +22,12 @@ public class MennicaPage {
 
     @FindBy(xpath = "//span[@class='price_oz']/span")
     private List<WebElement> goldPriceElement;
+
+    public void loadPage() {
+        String mennicaLink = "https://mennicakapitalowa.pl/";
+        System.out.println("Opening " + mennicaLink);
+        driver.get(mennicaLink);
+    }
 
     public void waitUntilPrice(String metal, int price) {
         if (checkMetalPrice(metal) <= price) {
@@ -35,9 +44,6 @@ public class MennicaPage {
         } else {
             metalType = 1;
         }
-        String mennicaLink = "https://mennicakapitalowa.pl/";
-        System.out.println("Opening " + mennicaLink);
-        driver.get(mennicaLink);
         WaitManager.waitUntilTextDisappears(driver, goldPriceElement.get(metalType), "0.00", 5);
         String[] metalPrice = goldPriceElement.get(metalType).getText().split("\\.");
         System.out.println(metal + " price is: " + metalPrice[0] + " /oz");
