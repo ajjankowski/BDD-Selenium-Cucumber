@@ -20,10 +20,4 @@ public class GoldenmarkPageStepDefinition {
         goldenmarkCoinsList.put(coinName, coinLink);
         new GoldenmarkPage(CommonStepDefinition.driver).checkGoldenmarkPrices(goldenmarkCoinsList);
     }
-
-//    @After
-//    public void cleanUp() {
-//        System.out.println("Closing feature");
-//        driver.quit();
-//    }
 }

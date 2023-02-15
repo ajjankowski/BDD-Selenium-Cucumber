@@ -22,10 +22,4 @@ public class MennicaPageStepDefinition {
     public void iCheckIfSilverPriceIsLowerThan(int silverPrice) {
         new MennicaPage(CommonStepDefinition.driver).waitUntilPrice("Silver", silverPrice);
     }
-
-//    @After
-//    public void cleanUp() {
-//        System.out.println("Closing feature");
-//        driver.quit();
-//    }
 }
