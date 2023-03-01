@@ -1,6 +1,5 @@
 package tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -9,6 +8,8 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import java.time.Duration;
+
+import static io.github.bonigarcia.wdm.WebDriverManager.*;
 
 public class BaseTest {
     protected static WebDriver driver;
@@ -21,19 +22,16 @@ public class BaseTest {
         System.out.println("Starting feature in " + driverType + " driver");
         switch (driverType.toLowerCase()) {
             case "chrome" -> {
-                io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
+                chromedriver().setup();
                 driver = new ChromeDriver();
-                driver.manage().window().maximize();
             }
             case "firefox" -> {
-                io.github.bonigarcia.wdm.WebDriverManager.firefoxdriver().setup();
+                firefoxdriver().setup();
                 driver = new FirefoxDriver();
-                driver.manage().window().maximize();
             }
             case "edge" -> {
-                io.github.bonigarcia.wdm.WebDriverManager.edgedriver().setup();
+                edgedriver().setup();
                 driver = new EdgeDriver();
-
             }
             default -> System.out.println("Wrong driver type: use Chrome, Firefox or Edge");
         }
