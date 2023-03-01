@@ -20,20 +20,18 @@ public class CommonStepDefinition {
             case "chrome" -> {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
-                driver.manage().window().maximize();
             }
             case "firefox" -> {
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
-                driver.manage().window().maximize();
             }
             case "edge" -> {
                 WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver();
-                driver.manage().window().maximize();
             }
             default -> System.out.println("Wrong driver type: use Chrome, Firefox or Edge");
         }
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
 
