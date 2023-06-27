@@ -4,6 +4,7 @@ Project is an example of Behavior-Driven Development, with Cucumber setup.
 
 ### Libraries used in project
 * Selenium
+* Maven
 * Cucumber
 * JUnit
 
