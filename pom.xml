@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>invest.bot</groupId>
-    <artifactId>InvestBot</artifactId>
+    <artifactId>BDD-Selenium-Cucumber</artifactId>
     <version>1.0</version>
     <properties>
         <maven.compiler.source>19</maven.compiler.source>
