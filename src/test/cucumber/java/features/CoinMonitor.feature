@@ -9,6 +9,7 @@ Feature: Monitor bullion coins prices
     Then I check if gold price is lower than 8000
     And I check if silver price is lower than 80
 
+  # Scenario Outline is not used due to performance issue
   Scenario: Monitor gold coins
     Given I am on goldenmark page
     Then I check current "Kangaroo" coin price at "https://goldenmark.com/pl/australijski-kangur-1-uncja-zlota/"
