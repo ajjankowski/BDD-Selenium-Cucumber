@@ -13,7 +13,10 @@ Project is an example of Behavior-Driven Development, with Cucumber setup.
 1. JDK
 2. Maven
 3. IntelliJ
-4. IntelliJ Plugins for Maven
+4. IntelliJ Plugins for:
+   - Maven
+   - Cucumber for Java
+   - Gherkin
 
 ### Framework set up
 
@@ -28,4 +31,4 @@ Project is an example of Behavior-Driven Development, with Cucumber setup.
 
 ### Test execution
 
-* To execute tests run Feature or Scenario from "CoinMonitor.feature" or "RunAllFeaturesTest"
+* To execute tests run Feature or Scenario from "CoinMonitor.feature"
