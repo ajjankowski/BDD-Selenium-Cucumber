@@ -11,7 +11,12 @@ public class WaitManager {
 
     public static void waitUntilTextDisappears(WebDriver driver, WebElement element, String textToDisappear, int seconds) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
-        wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(element, textToDisappear)));
+        try {
+            wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(element, textToDisappear)));
+        } catch (Exception e) {
+            wait.until(ExpectedConditions.not(ExpectedConditions.textToBePresentInElement(element, textToDisappear)));
+        }
+
     }
 
     public static void waitForElementToBeClickable(WebDriver driver, WebElement element, int seconds) {

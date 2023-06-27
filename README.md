@@ -1,5 +1,34 @@
-# InvestBot
+# BDD-Selenium-Cucumber
 
-1) Java in main -> is always Sources Root
-2) Java in test -> is always Test Sources Root
-3) Files xxStructureFileToDelete -> to be deleted after filling package
+Project is an example of Behavior-Driven Development, with Cucumber setup.
+
+### Libraries used in project
+* Selenium
+* Maven
+* Cucumber
+* JUnit
+
+### Installation (prerequisites)
+
+1. JDK
+2. Maven
+3. IntelliJ
+4. IntelliJ Plugins for:
+   - Maven
+   - Cucumber for Java
+   - Gherkin
+
+### Framework set up
+
+* Git:
+
+    *     git clone https://github.com/ajjankowski/BDD-Selenium-Cucumber.git
+
+* Manually :
+
+    * Fork / Clone repository from [here](https://github.com/ajjankowski/BDD-Selenium-Cucumber/archive/refs/heads/main.zip) or download zip and set
+      it up in your local workspace.
+
+### Test execution
+
+* To execute tests run Feature or Scenario from "CoinMonitor.feature"
