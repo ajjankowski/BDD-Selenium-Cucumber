@@ -1,8 +1,8 @@
-@Coins
+@coins
 Feature: Monitor bullion coins prices
 
   Background:
-    Given I am using "Chrome" website
+    Given I am using "Chrome" browser
 
   Scenario: Check metal base prices
     Given I am on mennica page
