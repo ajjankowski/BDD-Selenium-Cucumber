@@ -16,10 +16,10 @@ import java.time.Duration;
 public class CommonStepDefinition {
     protected static WebDriver driver;
 
-    @Given("I am using {string} website")
+    @Given("I am using {string} browser")
     public void iAmUsingWebsite(String driverType) {
-        System.out.println("Starting feature in " + driverType + " driver");
-        switch (driverType.toLowerCase()) {
+        System.out.println("Starting feature using " + driverType + " driver");
+        switch (driverType.toLowerCase().trim()) {
             case "chrome" -> {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
