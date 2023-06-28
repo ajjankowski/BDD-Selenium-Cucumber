@@ -1,4 +1,4 @@
-@Coins
+@coins
 Feature: Monitor bullion coins prices
 
   Background:
