@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
         tags = "@coins",
         features = "src/test/resources",
         glue = "steps",
-        plugin = {"pretty", "html:target/cucumber-report/cucumber.html",
-                "json:target/cucumber-report/cucumber.json",
-                "junit:target/cucumber-report/cucumber.xml"})
+        plugin = {"pretty",
+                "html:target/cucumber-report/cucumber.html",
+                "json:target/cucumber-report/cucumber.json"})
 public class TestRunner {
 }
