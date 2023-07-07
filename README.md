@@ -32,6 +32,6 @@ Project is an example of Behavior-Driven Development, with Cucumber setup.
 ### Test execution
 
 * Mark "src/test/java" as "Test Sources Root" if needed
-* To execute RunAllFeatures or Scenario from "src/test/resources"
+* To execute run "TestRunner", Scenario from "src/test/resources" or run Jenkins
 * For browser report go to "target/cucumber-report/cucumber.html"
 * For Jenkins report configure plugin "Cucumber reports"
