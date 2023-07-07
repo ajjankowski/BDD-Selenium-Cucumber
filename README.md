@@ -31,5 +31,5 @@ Project is an example of Behavior-Driven Development, with Cucumber setup.
 
 ### Test execution
 
-* Mark "src/test/cucumber/java" as "Test Sources Root" if needed
-* To execute tests run Feature or Scenario from "CoinMonitor.feature"
+* Mark "src/test/java" as "Test Sources Root" if needed
+* To execute RunAllFeatures or Scenario from "src/test/resources"
