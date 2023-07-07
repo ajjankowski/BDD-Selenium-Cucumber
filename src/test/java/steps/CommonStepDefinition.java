@@ -18,23 +18,25 @@ public class CommonStepDefinition {
 
     @Given("I am using {string} browser")
     public void iAmUsingWebsite(String driverType) {
-        System.out.println("Starting feature using " + driverType + " driver");
+        System.out.println("Starting tests using " + driverType + " driver");
         switch (driverType.toLowerCase().trim()) {
             case "chrome" -> {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless=new");
                 chromeOptions.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver(chromeOptions);
             }
             case "firefox" -> {
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("--remote-allow-origins=*");
+                firefoxOptions.addArguments("--headless");
                 driver = new FirefoxDriver(firefoxOptions);
             }
             case "edge" -> {
                 WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = new EdgeOptions();
+                edgeOptions.addArguments("--headless=new");
                 edgeOptions.addArguments("--remote-allow-origins=*");
                 driver = new EdgeDriver(edgeOptions);
             }
