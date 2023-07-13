@@ -3,19 +3,20 @@ pipeline {
 
     parameters {
         string defaultValue: 'main', name: 'BRANCH', trim: true
+        string defaultValue: 'https://github.com/ajjankowski/BDD-Selenium-Cucumber.git', name: 'GITURL', trim: true
     }
 
     stages {
         stage('Git checkout') {
             steps {
-                git branch: '${BRANCH}', url: 'https://github.com/ajjankowski/BDD-Selenium-Cucumber.git'
-                echo "Repository checked on ${BRANCH} branch"
+                git branch: '${BRANCH}', url: '${GITURL}'
+                echo "Repository checked on ${BRANCH} branch from ${GITURL}"
             }
         }
         stage('Run tests') {
             steps {
                 echo 'Running tests stage'
-                bat 'mvn clean test'
+                bat "mvn clean test"
                 echo 'Tests completed'
             }
         }
