@@ -7,6 +7,7 @@ import utils.TestLogger;
 
 import java.util.HashMap;
 
+import static org.junit.Assert.assertEquals;
 import static steps.CommonStepDefinition.driver;
 
 public class GoldenmarkPageStepDefinition {
@@ -16,7 +17,7 @@ public class GoldenmarkPageStepDefinition {
         TestLogger.info("Starting Scenario: Monitor gold coins");
         TestLogger.info("Starting step: I am on goldenmark page");
         driver.get("https://goldenmar.com/pl/");
-//        assertEquals("https://goldenmar.com/pl/", driver.getCurrentUrl());
+        assertEquals("https://goldenmar.com/pl/", driver.getCurrentUrl());
     }
 
     @Then("I check current {string} coin price at {string}")
