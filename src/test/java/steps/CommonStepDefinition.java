@@ -25,7 +25,7 @@ public class CommonStepDefinition {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
 //                chromeOptions.addArguments("--headless=new");
-//                chromeOptions.addArguments("--remote-allow-origins=*");
+                chromeOptions.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver(chromeOptions);
             }
             case "firefox" -> {
