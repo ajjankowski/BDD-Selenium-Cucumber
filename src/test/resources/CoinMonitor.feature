@@ -2,7 +2,7 @@
 Feature: Monitor bullion coins prices
 
   Background:
-    Given I am using "Chrome" browser
+    Given I am using "Chromee" browser
 
   Scenario: Check metal base prices
     Given I am on mennica page
