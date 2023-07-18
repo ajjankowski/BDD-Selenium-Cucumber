@@ -16,20 +16,15 @@ pipeline {
         stage('Run tests') {
             steps {
                 echo 'Running tests stage'
-                script {
-                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                        bat "mvn clean test"
-                    }
-                }
+                bat "mvn clean test"
                 echo 'Tests completed'
             }
         }
-        stage('Build report') {
-            steps {
-                echo 'Building report'
-                cucumber buildStatus: 'null', customCssFiles: '', customJsFiles: '', failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
-                echo "Report build"
-            }
+    post {
+        always {
+            echo 'Building report'
+            cucumber buildStatus: 'null', customCssFiles: '', customJsFiles: '', failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
+            echo "Report build"
         }
     }
 }
