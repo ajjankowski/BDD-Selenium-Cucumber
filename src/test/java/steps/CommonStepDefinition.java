@@ -49,7 +49,7 @@ public class CommonStepDefinition {
 
     @After
     public static void teardown() {
-        TestLogger.info("Test teardown");
+        TestLogger.info("Closing scenario");
         driver.quit();
     }
 }
