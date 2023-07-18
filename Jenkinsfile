@@ -17,11 +17,8 @@ pipeline {
             steps {
                 echo 'Running tests stage'
                 script {
-                    try {
-                    bat "mvn clean test"
-                    } catch (Exception e) {
-                        currentBuild.result = 'FAILURE'
-                        echo 'Test execution failed but continuing to next stage'
+                    catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                        bat "mvn clean test"
                     }
                 }
                 echo 'Tests completed'
