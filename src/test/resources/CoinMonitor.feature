@@ -1,4 +1,4 @@
-@coins
+@all @coins
 Feature: Monitor bullion coins prices
 
   Background:
@@ -10,8 +10,8 @@ Feature: Monitor bullion coins prices
     And I check if silver price is lower than 80
 
 ## Scenario Outline is not used due to performance issue
-#  Scenario: Monitor gold coins
-#    Given I am on goldenmark page
+  Scenario: Monitor gold coins
+    Given I am on goldenmark page
 #    Then I check current "Kangaroo" coin price at "https://goldenmark.com/pl/australijski-kangur-1-uncja-zlota/"
 #    Then I check current "Leaf" coin price at "https://goldenmark.com/pl/kanadyjski-lisc-klonowy-1-uncja-zlota/"
 #    Then I check current "Britannia" coin price at "https://goldenmark.com/pl/britannia-1-uncja-zlota-2929/"

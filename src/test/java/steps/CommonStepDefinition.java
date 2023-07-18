@@ -47,9 +47,9 @@ public class CommonStepDefinition {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
 
-    @After
-    public void cleanUp() {
-        TestLogger.info("Closing feature");
+    @After("@all")
+    public static void teardown() {
+        TestLogger.info("Test teardown");
         driver.quit();
     }
 }
