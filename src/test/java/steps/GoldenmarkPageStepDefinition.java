@@ -7,7 +7,7 @@ import utils.TestLogger;
 
 import java.util.HashMap;
 
-import static steps.CommonStepDefinition.driver;
+import static utils.DriverFactory.driver;
 
 public class GoldenmarkPageStepDefinition {
 
