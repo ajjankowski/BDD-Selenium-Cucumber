@@ -15,7 +15,7 @@ import utils.TestLogger;
 import java.time.Duration;
 
 public class CommonStepDefinition {
-    protected static WebDriver driver;
+    public static WebDriver driver;
 
     @Given("I am using {string} browser")
     public static void iAmUsingWebsite(String driverType) {
@@ -24,7 +24,7 @@ public class CommonStepDefinition {
             case "chrome" -> {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--headless=new");
+//                chromeOptions.addArguments("--headless=new");
                 chromeOptions.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver(chromeOptions);
             }
@@ -50,6 +50,8 @@ public class CommonStepDefinition {
     @After
     public static void teardown() {
         TestLogger.info("Closing scenario");
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
