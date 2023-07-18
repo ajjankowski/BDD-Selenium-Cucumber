@@ -16,7 +16,14 @@ pipeline {
         stage('Run tests') {
             steps {
                 echo 'Running tests stage'
-                bat "mvn clean test"
+                script {
+                    try {
+                    bat "mvn clean test"
+                    } catch (Exception e) {
+                        currentBuild.result = 'UNSTABLE'
+                        echo 'Test execution failed but continuing to next stage'
+                    }
+                }
                 echo 'Tests completed'
             }
         }
