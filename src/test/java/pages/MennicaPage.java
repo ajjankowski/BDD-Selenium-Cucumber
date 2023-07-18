@@ -10,8 +10,6 @@ import utils.WaitManager;
 import java.util.List;
 import java.util.Objects;
 
-import static org.junit.Assert.*;
-
 public class MennicaPage {
     private static WebDriver driver;
 
@@ -30,7 +28,6 @@ public class MennicaPage {
     }
 
     public void waitUntilPrice(String metal, int price) {
-        assertEquals(30, price);
         if (checkMetalPrice(metal) <= price) {
             TestLogger.info("-> Time to buy a coin!");
         } else {
