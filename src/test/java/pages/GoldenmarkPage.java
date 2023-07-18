@@ -1,5 +1,6 @@
 package pages;
 
+import dev.failsafe.internal.util.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,9 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import utils.TestLogger;
 
 import java.util.Map;
-
-//TODO: Asercja
-//import static org.junit.Assert.assertEquals;
 
 public class GoldenmarkPage {
     private static WebDriver driver;
@@ -42,8 +40,7 @@ public class GoldenmarkPage {
 
     public void openWeb(String link) {
         driver.get(link);
-        //TODO: Asercja
-//        Assert.assertEquals(driver.getCurrentUrl(), link);
+        Assert.assertEquals(driver.getCurrentUrl(), link);
     }
 
     public void checkRadioButton() {
