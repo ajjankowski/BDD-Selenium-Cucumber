@@ -20,7 +20,7 @@ pipeline {
                     try {
                     bat "mvn clean test"
                     } catch (Exception e) {
-                        currentBuild.result = 'UNSTABLE'
+                        currentBuild.result = 'FAILURE'
                         echo 'Test execution failed but continuing to next stage'
                     }
                 }

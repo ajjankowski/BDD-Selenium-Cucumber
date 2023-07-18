@@ -7,13 +7,17 @@ import utils.TestLogger;
 
 import java.util.HashMap;
 
+import static org.junit.Assert.assertEquals;
+import static steps.CommonStepDefinition.driver;
+
 public class GoldenmarkPageStepDefinition {
 
     @Given("I am on goldenmark page")
     public void iAmOnGoldenmarkPage() {
         TestLogger.info("Starting Scenario: Monitor gold coins");
         TestLogger.info("Starting step: I am on goldenmark page");
-        CommonStepDefinition.driver.get("https://goldenmark.com/pl/");
+        driver.get("https://goldenmark.com/pl/");
+        assertEquals("https://goldenmar.com/pl/", driver.getCurrentUrl());
     }
 
     @Then("I check current {string} coin price at {string}")
@@ -21,6 +25,6 @@ public class GoldenmarkPageStepDefinition {
         TestLogger.info("Starting step: I check current " + coinName + " coin price at " + coinLink);
         HashMap<String, String> goldenmarkCoinsList = new HashMap<>();
         goldenmarkCoinsList.put(coinName, coinLink);
-        new GoldenmarkPage(CommonStepDefinition.driver).checkGoldenmarkPrices(goldenmarkCoinsList);
+        new GoldenmarkPage(driver).checkGoldenmarkPrices(goldenmarkCoinsList);
     }
 }
