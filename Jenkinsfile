@@ -20,6 +20,7 @@ pipeline {
                 echo 'Tests completed'
             }
         }
+    }
     post {
         always {
             echo 'Building report'
