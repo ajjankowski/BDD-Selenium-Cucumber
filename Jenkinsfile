@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        string defaultValue: 'main', name: 'BRANCH', trim: true
+        string defaultValue: 'TestLogger', name: 'BRANCH', trim: true
         string defaultValue: 'https://github.com/ajjankowski/BDD-Selenium-Cucumber.git', name: 'GITURL', trim: true
     }
 
