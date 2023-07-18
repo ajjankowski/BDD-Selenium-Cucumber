@@ -4,8 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.TestLogger;
 
-import java.util.HashMap;
+import java.util.Map;
 
 //TODO: Asercja
 //import static org.junit.Assert.assertEquals;
@@ -30,8 +31,8 @@ public class GoldenmarkPage {
     @FindBy(xpath = "//input[@title=\"45 dni\"]")
     private WebElement fortyFiveDayRadioButton;
 
-    public void checkGoldenmarkPrices(HashMap<String, String> goldenmarkCoinsList) throws InterruptedException {
-        System.out.println("Goldenmark coin prices:");
+    public void checkGoldenmarkPrices(Map<String, String> goldenmarkCoinsList) throws InterruptedException {
+        TestLogger.info("Goldenmark coin prices:");
         for (String coinName : goldenmarkCoinsList.keySet()) {
             openWeb(goldenmarkCoinsList.get(coinName));
             checkRadioButton();
@@ -50,21 +51,21 @@ public class GoldenmarkPage {
             if (!oneDayRadioButton.isSelected()) {
                 oneDayRadioButton.click();
             }
-            System.out.println("Coin available in 24h");
+            TestLogger.info("Coin available in 24h");
         } catch (Exception e) {
             try {
                 if (!nineDayRadioButton.isSelected()) {
                     nineDayRadioButton.click();
                 }
-                System.out.println("Coin available in 9 days");
+                TestLogger.info("Coin available in 9 days");
             } catch (Exception e2) {
                 try {
                     if (!fortyFiveDayRadioButton.isSelected()) {
                         fortyFiveDayRadioButton.click();
                     }
-                    System.out.println("Coin available only in 45 days");
+                    TestLogger.info("Coin available only in 45 days");
                 } catch (Exception e3) {
-                    System.out.println("Coin is unavailable");
+                    TestLogger.info("Coin is unavailable");
                 }
             }
         }
@@ -73,6 +74,6 @@ public class GoldenmarkPage {
     public void checkPrice(String coinName, String link) throws InterruptedException {
         Thread.sleep(1000);
         String coinPrice = goldenmarkCoinPrice.getAttribute("content");
-        System.out.println("-> " + coinPrice + " - " + coinName + " " + link);
+        TestLogger.info("-> " + coinPrice + " - " + coinName + " " + link);
     }
 }

@@ -10,6 +10,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import utils.TestLogger;
 
 import java.time.Duration;
 
@@ -17,8 +18,8 @@ public class CommonStepDefinition {
     protected static WebDriver driver;
 
     @Given("I am using {string} browser")
-    public void iAmUsingWebsite(String driverType) {
-        System.out.println("Starting tests using " + driverType + " driver");
+    public static void iAmUsingWebsite(String driverType) {
+        TestLogger.info("Starting tests using " + driverType + " driver");
         switch (driverType.toLowerCase().trim()) {
             case "chrome" -> {
                 WebDriverManager.chromedriver().setup();
@@ -40,7 +41,7 @@ public class CommonStepDefinition {
                 edgeOptions.addArguments("--remote-allow-origins=*");
                 driver = new EdgeDriver(edgeOptions);
             }
-            default -> System.out.println("Wrong driver type: use Chrome, Firefox or Edge");
+            default -> TestLogger.error("Wrong driver type: use Chrome, Firefox or Edge");
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
@@ -48,7 +49,7 @@ public class CommonStepDefinition {
 
     @After
     public void cleanUp() {
-        System.out.println("Closing feature");
+        TestLogger.info("Closing feature");
         driver.quit();
     }
 }
