@@ -21,7 +21,7 @@ public class CommonStepDefinition {
     @After(order = 1)
     public void takeScreenshotOnFailure(Scenario scenario) {
         TestLogger.info("Taking screenshot on failure");
-        if (!scenario.isFailed()) {
+        if (scenario.isFailed()) {
             TakesScreenshot ts = (TakesScreenshot) driver;
             byte[] src = ts.getScreenshotAs(BYTES);
             scenario.attach(src, "image/png", "Screenshot_failed_Scenario_" + scenario);
