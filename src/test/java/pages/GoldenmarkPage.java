@@ -18,19 +18,23 @@ public class GoldenmarkPage {
         PageFactory.initElements(GoldenmarkPage.driver, this);
     }
 
+    @FindBy(id = "CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll")
+    private WebElement cookieConfirm;
+
     @FindBy(xpath = "//span[@itemprop='price']")
     private WebElement goldenmarkCoinPrice;
 
-    @FindBy(xpath = "//input[@title=\"1 dzień\"]")
+    @FindBy(xpath = "//input[@title='1 dzień']")
     private WebElement oneDayRadioButton;
 
-    @FindBy(xpath = "//input[@title=\"9 dni\"]")
+    @FindBy(xpath = "//input[@title='9 dni']")
     private WebElement nineDayRadioButton;
 
-    @FindBy(xpath = "//input[@title=\"45 dni\"]")
+    @FindBy(xpath = "//input[@title='45 dni']")
     private WebElement fortyFiveDayRadioButton;
 
     public void checkGoldenmarkPrices(Map<String, String> goldenmarkCoinsList) throws InterruptedException {
+        cookieConfirm.click();
         TestLogger.info("Goldenmark coin prices:");
         for (String coinName : goldenmarkCoinsList.keySet()) {
             openWeb(goldenmarkCoinsList.get(coinName));
