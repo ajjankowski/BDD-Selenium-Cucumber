@@ -1,6 +1,7 @@
 package utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -23,6 +24,7 @@ public class DriverFactory {
                 chromeOptions.addArguments("--headless=new");
                 chromeOptions.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver(chromeOptions);
+                driver.manage().window().setSize(new Dimension(1920, 1080));
             }
             case "firefox" -> {
                 WebDriverManager.firefoxdriver().setup();
