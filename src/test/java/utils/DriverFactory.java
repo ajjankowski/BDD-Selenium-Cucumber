@@ -31,6 +31,7 @@ public class DriverFactory {
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.addArguments("--headless");
                 driver = new FirefoxDriver(firefoxOptions);
+                driver.manage().window().setSize(new Dimension(1920, 1080));
             }
             case "edge" -> {
                 WebDriverManager.edgedriver().setup();
@@ -38,6 +39,7 @@ public class DriverFactory {
                 edgeOptions.addArguments("--headless=new");
                 edgeOptions.addArguments("--remote-allow-origins=*");
                 driver = new EdgeDriver(edgeOptions);
+                driver.manage().window().setSize(new Dimension(1920, 1080));
             }
             default -> TestLogger.error("Wrong driver type: use Chrome, Firefox or Edge");
         }
