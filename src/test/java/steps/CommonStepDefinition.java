@@ -18,7 +18,7 @@ public class CommonStepDefinition {
         DriverFactory.setDriver(driverType);
     }
 
-    @After(order = 1)
+    @After(order = 0)
     public void takeScreenshotOnFailure(Scenario scenario) {
         TestLogger.info("Taking screenshot on failure");
         if (scenario.isFailed()) {
@@ -28,7 +28,7 @@ public class CommonStepDefinition {
         }
     }
 
-    @After(order = 0)
+    @After(order = 1)
     public static void closeScenario() {
         TestLogger.info("Closing scenario");
         DriverFactory.teardown();
