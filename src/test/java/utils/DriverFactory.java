@@ -42,7 +42,7 @@ public class DriverFactory {
         }
         driver.manage().window().setSize(new Dimension(1920, 1080));
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
 
     public static void teardown() {
