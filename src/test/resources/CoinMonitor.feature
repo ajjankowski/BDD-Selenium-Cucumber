@@ -16,7 +16,7 @@ Feature: Monitor bullion coins prices
       | coinType  | website                                                          |
       | Kangaroo  | https://goldenmark.com/pl/australijski-kangur-1-uncja-zlota/     |
       | Leaf      | https://goldenmark.com/pl/kanadyjski-lisc-klonowy-1-uncja-zlota/ |
-      | Britannia | https://goldenmark.com/pl/britannia-1-uncja-zlota-292/           |
+      | Britannia | https://goldenmark.com/pl/britannia-1-uncja-zlota-2929/           |
 
 #  Scenario Outline: Monitor silver coins
 #    Given I am on goldenmark page
