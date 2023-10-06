@@ -1,6 +1,7 @@
 package steps;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.TakesScreenshot;
@@ -18,7 +19,7 @@ public class CommonStepDefinition {
         DriverFactory.setDriver(driverType);
     }
 
-    @After(order = 1)
+    @AfterStep(order = 1)
     public void takeScreenshotOnFailure(Scenario scenario) {
         TakesScreenshot ts = (TakesScreenshot) driver;
         if (scenario.isFailed()) {
