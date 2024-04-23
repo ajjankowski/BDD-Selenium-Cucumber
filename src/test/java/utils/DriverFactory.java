@@ -41,7 +41,6 @@ public class DriverFactory {
             default -> TestLogger.error("Wrong driver type: use Chrome, Firefox or Edge");
         }
         driver.manage().window().setSize(new Dimension(1920, 1080));
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
 
