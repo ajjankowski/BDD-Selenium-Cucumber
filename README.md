@@ -1,5 +1,3 @@
-# Coin monitor - Old
-
 # BDD-Selenium-Cucumber
 
 Project is an example of Behavior-Driven Development, with Cucumber setup.
