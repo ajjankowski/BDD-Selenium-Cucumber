@@ -18,9 +18,4 @@ public class WaitManager {
         }
 
     }
-
-    public static void waitForElementToBeClickable(WebDriver driver, WebElement element, int seconds) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
-        wait.until(ExpectedConditions.elementToBeClickable(element));
-    }
 }
